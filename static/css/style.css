@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+/* @import url("https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css"); */
+
+:root {
+    --light-1: #fcf8ec;
+    --light-2: #d0e8f2;
+    --light-3: #79a3b1;
+    --light-4: #456268;
+
+    --dark-1: #222831;
+    --dark-2: #393e46;
+    --dark-3: #ffd369;
+    --dark-4: #eeeeee;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    background-color: var(--light-1);
+}
+
+.d-custom {
+    display: inline-block;
+}
+
+/** Background */
+.bg-lightmode {
+    background-color: var(--light-1);
+}
+.bg-lightmode2 {
+    background-color: var(--light-2);
+}
+.bg-lightmode3 {
+    background-color: var(--light-3);
+}
+.bg-lightmode4 {
+    background-color: var(--light-4);
+}
+.bg-darkmode {
+    background-color: var(--dark-1);
+}
+.bg-darkmode2 {
+    background-color: var(--dark-2);
+}
+.bg-darkmode3 {
+    background-color: var(--dark-3);
+}
+.bg-darkmode4 {
+    background-color: var(--dark-4);
+}
+
+img.bg-image {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    height: 20%;
+    width: auto;
+}
+img.bg-image2 {
+    transform: rotate(60deg);
+    position: absolute;
+    top: 14%;
+    right: 3%;
+    height: 38%;
+    width: auto;
+    filter: blur(5px);
+}
+img.bg-image3 {
+    transform: rotate(120deg);
+    position: absolute;
+    bottom: 18%;
+    right: 28%;
+    height: 5%;
+    width: auto;
+    opacity: 0.7;
+}
+
+.bg-positif {
+    background-color: #456268;
+}
+.bg-sembuh,
+.bg-sembuh h4,
+.bg-sembuh p {
+    background-color: var(--light-2);
+    color: #111;
+}
+.bg-sembuh hr {
+    border-top: 1px solid #111;
+}
+
+.bg-meninggal {
+    background-color: var(--dark-2);
+}
+
+/** Text & Font */
+.text-id {
+    color: var(--light-1);
+}
+/* .card h4,
+.card p {
+    font-family: "Fira Code";
+} */
+
+/* Undelined Effect */
+.underlink {
+    background-image: linear-gradient(900deg, #456268, #456268);
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 300ms ease;
+}
+.underlink:hover {
+    background-size: 100% 3px;
+}
+
+/* Noticed Text */
+.noticed {
+    color: var(--light-4);
+}
+.noticed-dark {
+    color: var(--dark-4);
+}
+
+.welcome {
+    list-style: none;
+    z-index: 0;
+}
+
+/* Height & Width */
+.h-full {
+    height: 100%;
+}
+
+/* Center */
+.centering {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.go-down a {
+    color: var(--light-4);
+}
+
+/* Custom Hamburg Toggle */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(252, 248, 236, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/** Media Query */
+@media (max-width: 767px) {
+    .navbar {
+        background-color: var(--light-4);
+        z-index: 1;
+    }
+    .navbar a {
+        color: var(--light-1) !important;
+    }
+    .custom-toggler.navbar-toggler {
+        border-color: var(--light-1);
+    }
+    .bg-image,
+    .bg-image2,
+    .bg-image3 {
+        z-index: -1;
+    }
+    img.bg-image2 {
+        position: absolute;
+        top: 75%;
+        right: -10%;
+    }
+}

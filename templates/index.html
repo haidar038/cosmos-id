@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Own CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </link>
+
+    <!-- AOS CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container-fluid h-100 p-0">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-lightmode">
+            <div class="container">
+                <a class="navbar-brand" href="#">COSMOS-ID</a>
+                <button class="navbar-toggler custom-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item ms-5 me-3">
+                            <a class="nav-link underlink" href="">Home</span></a>
+                        </li>
+                        <li class="nav-item ms-5 me-3">
+                            <a class="nav-link underlink" href="">About</a>
+                        </li>
+                        <li class="nav-item ms-5 me-3">
+                            <a class="nav-link underlink" href="">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="container centering">
+            <div class="row align-items-center">
+                <div class="col-md-12 welcome">
+                    <h1 class="welcome display-4 loaded-left text-muted text-center m-0">Welcome To</h1>
+                    <h1 class="welcome display-1 loaded-right text-center m-0"><span
+                            class="fw-bold noticed">CO</span>RONA
+                        VIRU<span class=" fw-bold noticed">S</span></h1>
+                    <h1 class="welcome display-1 loaded-left2 text-center m-0"><span
+                            class="fw-bold noticed">MO</span>NITORING <span class=" fw-bold noticed">S</span>YSYEM</h1>
+                    <div class="d-flex loaded-up justify-content-center mb-4">
+                        <h1 class="fs-1 p-3 w-auto fw-bold bg-lightmode4 text-id text-center">INDONESIA</h1>
+                    </div>
+                    <div class="d-flex justify-content-center go-down">
+                        <a href="#data" class="text-center">
+                            <i class="text-center fas fa-angle-double-down fs-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bg -->
+    <img src="{{ url_for('static', filename='img/virus 2.svg') }}" alt="" class="faded bg-image">
+    <img src="{{ url_for('static', filename='img/virus 2.svg') }}" alt="" class="faded bg-image2">
+    <img src="{{ url_for('static', filename='img/virus 2.svg') }}" alt="" class="faded bg-image3">
+
+    <!-- Data Covid -->
+    <div class="container h-100" id="data">
+        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
+            <h1 class="display-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">Data Kasus Covid</h1>
+            <hr class="mb-4">
+            <div class="col-md-4 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
+                <div class="card bg-positif text-white" data-tilt>
+                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Positif</h4>
+                        <hr>
+                        <p class="card-text text-center">{{ positif }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-aos-offset="50">
+                <div class="card bg-sembuh text-white" data-tilt>
+                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Sembuh</h4>
+                        <hr class="">
+                        <p class="card-text text-center">{{ sembuh }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="900" data-aos-delay="900" data-aos-offset="50">
+                <div class="card bg-meninggal text-white" data-tilt>
+                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Kasus Kematian">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Meninggal</h4>
+                        <hr>
+                        <p class="card-text text-center">{{ meninggal }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
+            <h1 class="display-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">Data Vaksinasi</h1>
+            <hr class="mb-4">
+            <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
+                <div class="card bg-white" data-tilt>
+                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Vaksin Tahap I</h4>
+                        <hr>
+                        <p class="card-text text-center">{{ positif }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-aos-offset="50">
+                <div class="card bg-white" data-tilt>
+                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Vaksin Tahap II</h4>
+                        <hr class="">
+                        <p class="card-text text-center">{{ sembuh }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
+            <div class="col-md-12 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
+                <p class="text-muted text-center">Terakhir Update : {{ tanggal }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Tilt JS -->
+    <script src="{{ url_for('static', filename='node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/tilt.js/dest/tilt.jquery.min.js') }}"></script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+
+            $('.card').tilt({
+                maxTilt: 6,
+                glare: true,
+                maxGlare: 0.1,
+                perspective: 400,
+            });
+
+        });
+    </script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/f6820fefc9.js" crossorigin="anonymous"></script>
+
+    <!-- Anime JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let animation = anime.timeline({
+            // Properties
+            easing: 'linear',
+            duration: 50000,
+            direction: 'alternate',
+            loop:false,
+        });
+        
+        animation.add({
+            targets: '.faded',
+            delay:2000,
+            opacity:[0,100],
+        })
+    </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script>
+        gsap.from("h1.loaded-left", { duration: 1, x: -80, opacity: 0, ease: "back.out(1)", delay: 1 });
+        gsap.from("h1.loaded-left2", { duration: 1, x: -80, opacity: 0, ease: "back.out(1)", delay: 1.6 });
+        gsap.from("h1.loaded-right", { duration: 1, x: 80, opacity: 0, ease: "back.out(1)", delay: 1.3 });
+        gsap.from(".loaded-up", { duration: 2, y: 50, opacity: 0, ease: "back.out(1)", delay: 2.5 });
+        gsap.from(".go-down", { duration: 2, opacity: 0, ease: "power1.inOut", yoyo: true, delay: 3, repeat: -1 });
+        gsap.from("img.bg-image", { duration: 1.5, rotate: 5, scale: 0.95, ease: "power1.inOut", yoyo: true, repeat: -1 });
+        gsap.from("img.bg-image2", { duration: 2, scale: 0.95, ease: "power1.inOut", yoyo: true, repeat: -1 });
+        gsap.from("img.bg-image3", { duration: 1, scale: 0.9, ease: "power1.inOut", yoyo: true, repeat: -1 });
+    </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init(
+            {
+                once:true,
+            }
+        );
+    </script>
+</body>
+
+</html>
