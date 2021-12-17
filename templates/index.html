@@ -15,7 +15,14 @@
     </link>
 
     <!-- AOS CSS -->
-      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Chart -->
+
 
     <title>Home</title>
 </head>
@@ -56,7 +63,7 @@
                             class="fw-bold noticed">CO</span>RONA
                         VIRU<span class=" fw-bold noticed">S</span></h1>
                     <h1 class="welcome display-1 loaded-left2 text-center m-0"><span
-                            class="fw-bold noticed">MO</span>NITORING <span class=" fw-bold noticed">S</span>YSYEM</h1>
+                            class="fw-bold noticed">MO</span>NITORING <span class=" fw-bold noticed">S</span>YSTEM</h1>
                     <div class="d-flex loaded-up justify-content-center mb-4">
                         <h1 class="fs-1 p-3 w-auto fw-bold bg-lightmode4 text-id text-center">INDONESIA</h1>
                     </div>
@@ -76,71 +83,133 @@
     <img src="{{ url_for('static', filename='img/virus 2.svg') }}" alt="" class="faded bg-image3">
 
     <!-- Data Covid -->
-    <div class="container h-100" id="data">
-        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
-            <h1 class="display-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">Data Kasus Covid</h1>
-            <hr class="mb-4">
-            <div class="col-md-4 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
-                <div class="card bg-positif text-white" data-tilt>
-                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Positif</h4>
-                        <hr>
-                        <p class="card-text text-center">{{ positif }}</p>
+    <section class="bg-lightmode3">
+        <div class="container pt-4 d-grid justify-content-center pl-2" id="data">
+            <div class="row loaded w-100">
+                <h1 class="display-6 mb-4 text-center fw-bold" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-offset="100">Data Kasus Covid Saat Ini</h1>
+                <hr class="mb-4">
+                <div class="col-md-4 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay=""
+                    data-aos-offset="50">
+                    <div class="card bg-positif text-white" data-tilt>
+                        <!-- <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif"> -->
+                        <div class="card-body">
+                            <h1 class="card-text text-center fs-1">{{ positif }}</h1>
+                            <hr>
+                            <span class="fs-3 text-center"><i class="fa fa-notes-medical me-3"></i>Terkonfirmasi</span>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-4 mb-4" data-aos="fade-down" data-aos-duration="900" data-aos-delay="400"
+                    data-aos-offset="50">
+                    <div class="card bg-sembuh text-white" data-tilt>
+                        <!-- <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh"> -->
+                        <div class="card-body">
+                            <h1 class="card-text text-center fs-1 color-sembuh">{{ sembuh }}</h1>
+                            <hr>
+                            <span class="fs-3 text-center color-sembuh"><i
+                                    class="fa fa-smile-beam me-3"></i>Sembuh</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="900" data-aos-delay="800"
+                    data-aos-offset="50">
+                    <div class="card bg-meninggal text-white" data-tilt>
+                        <!-- <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Kasus Kematian"> -->
+                        <div class="card-body">
+                            <h1 class="card-text text-center fs-1">{{ meninggal }}</h1>
+                            <hr>
+                            <span class="fs-3 text-center"><i class="fa fa-book-dead me-3"></i>Meninggal</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-white text-center" data-aos="fade-up" data-aos-delay="1200" data-aos-offset="150">
+                    Terakhir Update : {{ tanggal }}</p>
             </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-aos-offset="50">
-                <div class="card bg-sembuh text-white" data-tilt>
-                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Sembuh</h4>
-                        <hr class="">
-                        <p class="card-text text-center">{{ sembuh }}</p>
+            <div class="row loaded w-100 d-flex align-items-center justify-content-center">
+                <h1 class="display-6 mb-4 text-center fw-bold" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-offset="100">Proses Vaksinasi Saat Ini</h1>
+                <hr class="mb-4">
+                <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="0"
+                    data-aos-offset="150">
+                    <div class="card bg-white" data-tilt>
+                        <!-- <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif"> -->
+                        <div class="card-body">
+                            <h1 class="card-text text-center fs-1">{{ tahap1 }}</h1>
+                            <hr>
+                            <span class="fs-3 text-center"><i class="fa fa-syringe me-3"></i>Vaksinasi Dosis 1</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="900" data-aos-delay="900" data-aos-offset="50">
-                <div class="card bg-meninggal text-white" data-tilt>
-                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Kasus Kematian">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Meninggal</h4>
-                        <hr>
-                        <p class="card-text text-center">{{ meninggal }}</p>
+                <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-duration="900" data-aos-delay="600"
+                    data-aos-offset="150">
+                    <div class="card bg-white" data-tilt>
+                        <!-- <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh"> -->
+                        <div class="card-body">
+                            <h1 class="card-text text-center fs-1">{{ tahap2 }}</h1>
+                            <hr>
+                            <span class="fs-3 text-center"><i class="fa fa-syringe me-3"></i>Vaksinasi Dosis 2</span>
+                        </div>
                     </div>
                 </div>
+                <p class="text-white text-center" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0">Terakhir
+                    Update : {{ tanggal2 }}</p>
             </div>
         </div>
-        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
-            <h1 class="display-6 mb-4 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">Data Vaksinasi</h1>
-            <hr class="mb-4">
-            <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
-                <div class="card bg-white" data-tilt>
-                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Terkonfirmasi Positif">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Vaksin Tahap I</h4>
-                        <hr>
-                        <p class="card-text text-center">{{ positif }}</p>
-                    </div>
-                </div>
+    </section>
+
+
+    <!-- Statistic Chart -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Data Statistik Perkembangan Kasus Covid Indonesia</h1>
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <script>
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [12, 19, 3, 5, 2, 3],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
-            <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-aos-offset="50">
-                <div class="card bg-white" data-tilt>
-                    <img class="card-img-top" height="auto" sizes="120px" width="auto" src="" alt="Pasien Sembuh">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Vaksin Tahap II</h4>
-                        <hr class="">
-                        <p class="card-text text-center">{{ sembuh }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row loaded w-100 d-flex align-items-center justify-content-center">
-            <div class="col-md-12 mb-4" data-aos="fade-right" data-aos-duration="900" data-aos-delay="" data-aos-offset="50">
-                <p class="text-muted text-center">Terakhir Update : {{ tanggal }}</p>
-            </div>
+
         </div>
     </div>
+
+    <!-- TODO Javascript -->
+    <!-- Chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -175,13 +244,13 @@
             easing: 'linear',
             duration: 50000,
             direction: 'alternate',
-            loop:false,
+            loop: false,
         });
-        
+
         animation.add({
             targets: '.faded',
-            delay:2000,
-            opacity:[0,100],
+            delay: 2000,
+            opacity: [0, 100],
         })
     </script>
 
@@ -203,7 +272,7 @@
     <script>
         AOS.init(
             {
-                once:true,
+                once: true,
             }
         );
     </script>

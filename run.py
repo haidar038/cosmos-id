@@ -30,12 +30,17 @@ def data():
     target = result_vaksin['totalsasaran']
     stage1 = result_vaksin['vaksinasi1']
     stage2 = result_vaksin['vaksinasi2']
+    stage1_formatted = f"{stage1:,}"
+    stage2_formatted = f"{stage2:,}"
     # target_formatted =
 # Last Update
     update = result_kasus['lastUpdate']
+    vaksin_update = result_vaksin['lastUpdate']
     parse_update = datetime.datetime.strptime(update, '%Y-%m-%dT%H:%M:%S.%fZ')
     tanggal = parse_update.strftime('%A, %d %B %Y Pukul %H:%M:%S WIB')
-    return render_template('index.html', positif=positif_formatted, sembuh=sembuh_formatted, meninggal=meninggal_formatted, tanggal=tanggal)
+    parse_update2 = datetime.datetime.strptime(vaksin_update, '%Y-%m-%dT%H:%M:%S.%f')
+    tanggal2 = parse_update2.strftime('%A, %d %B %Y Pukul %H:%M:%S WIB')
+    return render_template('index.html', positif=positif_formatted, sembuh=sembuh_formatted, meninggal=meninggal_formatted, tanggal=tanggal, tanggal2=tanggal2, tahap1=stage1_formatted, tahap2=stage2_formatted)
 
 
 if __name__ == "__main__":
